@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunil Golani - Senior Backend Engineer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js (for 3D graphics) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Lenis (for smooth scrolling) -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <style>
+        /* Use Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark background */
+            color: #d1d5db; /* Light gray text */
+        }
+        
+        /* 3D Canvas Styling */
+        #three-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.3; /* Make it subtle */
+        }
+        
+        /* Content Overlay */
+        .content-overlay {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Add a subtle gradient background to sections */
+        .section-gradient {
+            background-image: linear-gradient(to bottom, rgba(17, 24, 39, 0) 0%, rgba(17, 24, 39, 0.8) 100%);
+        }
+        
+        /* Style for section headers */
+        .section-header {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Style for skill/project cards */
+        .card {
+            background-color: #1f2937; /* Slightly lighter dark */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #374151;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6; /* Blue highlight on hover */
+        }
+        
+        /* Navbar link styles */
+        .nav-link {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.2s ease;
+        }
+        .nav-link:hover {
+            background-color: #1f2937;
+        }
+    </style>
+</head>
+<body data-lenis-wrapper>
+    <main data-lenis-content>
+        <!-- HEADER / NAVBAR -->
+        <header class="content-overlay sticky top-0 z-50 backdrop-blur-md bg-gray-900/50 border-b border-gray-700">
+            <nav class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
+                <div class="text-2xl font-bold text-white">SG.</div>
+                <div class="hidden md:flex space-x-2 text-gray-300">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <a href="https://www.linkedin.com/in/sunil-golani-990b2112a/" target="_blank" class="hidden md:inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                    View LinkedIn
+                </a>
+            </nav>
+        </header>
+
+        <!-- 3D Canvas Container -->
+        <canvas id="three-canvas"></canvas>
+
+        <!-- HERO SECTION -->
+        <section id="home" class="relative content-overlay h-screen flex items-center justify-center text-center overflow-hidden">
+            <div class="max-w-4xl px-6">
+                <!-- EDITABLE CONTENT -->
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4 leading-tight">
+                    SUNIL GOLANI
+                </h1>
+                <p class="text-3xl md:text-4xl font-bold text-blue-400 mb-8">
+                    Senior Backend Engineer
+                </p>
+                <p class="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto">
+                    Building Scalable Architectures in Python & Node.js, Secured by DevSecOps.
+                </p>
+                <!-- END EDITABLE CONTENT -->
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="content-overlay container mx-auto max-w-6xl px-6 py-20 md:py-32">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-4">
+                    <img 
+                        src="C9537DCD-45C3-4552-A427-F64E022B6E48_1_201_a.jpeg" 
+                        alt="Sunil Golani" 
+                        class="w-full h-auto rounded-xl shadow-2xl object-cover"
+                        onerror="this.src='https://placehold.co/600x600/1f2937/d1d5db?text=Sunil+Golani'"
+                    >
+                </div>
+                <div class="md:col-span-8">
+                    <h2 class="section-header">About Me</h2>
+                    <!-- EDITABLE CONTENT -->
+                    <div class="space-y-6 text-lg text-gray-300">
+                        <p>
+                            I am a Senior Backend Engineer with a deep-seated commitment to designing and deploying 
+                            <strong>robust, high-performance, and scalable digital solutions.</strong> 
+                            With hands-on experience across the entire development lifecycle, my expertise lies primarily in 
+                            <strong>JavaScript (Node.js/Express.js) and Python (Django)</strong>, 
+                            where I focus on building efficient APIs, microservices, and reliable data pipelines.
+                        </p>
+                        <p>
+                            My approach is not just about writing code; it’s about architecting systems that last. I have a strong command over the 
+                            <strong>DevOps and DevSecOps</strong> landscape, including containerization with 
+                            <strong>Docker</strong>, managing cloud infrastructure, and ensuring continuous integration and delivery. I thrive on translating 
+                            complex business requirements into elegant, secure, and production-ready code.
+                        </p>
+                    </div>
+                    <!-- END EDITABLE CONTENT -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="content-overlay container mx-auto max-w-6xl px-6 py-20 md:py-32">
+            <h2 class="section-header text-center">Core Skills & Expertise</h2>
+            <!-- EDITABLE CONTENT -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="card">
+                    <h3 class="text-xl font-bold text-white mb-3">Primary Backend</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <li>Node.js, Express.js</li>
+                        <li>Python, Django</li>
+                        <li>REST/SOAP APIs</li>
+                        <li>Microservices Architecture</li>
+                    </ul>
+                </div>
+                <!-- Skill Card 2 -->
+                <div class="card">
+                    <h3 class="text-xl font-bold text-white mb-3">Databases</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <li>PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>MySQL</li>
+                        <li>Data Modeling</li>
+                    </ul>
+                </div>
+                <!-- Skill Card 3 -->
+                <div class="card">
+                    <h3 class="text-xl font-bold text-white mb-3">DevOps & Cloud</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <li>Docker & Containerization</li>
+                        <li>AWS Services (EC2, S3, RDS)</li>
+                        <li>Git & CI/CD Pipelines</li>
+                        <li>DevSecOps Practices</li>
+                    </ul>
+                </div>
+                <!-- Skill Card 4 -->
+                <div class="card">
+                    <h3 class="text-xl font-bold text-white mb-3">Frontend Knowledge</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <li>JavaScript (ES6+)</li>
+                        <li>React</li>
+                        <li>HTML5 & CSS3</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END EDITABLE CONTENT -->
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="content-overlay container mx-auto max-w-6xl px-6 py-20 md:py-32">
+            <h2 class="section-header text-center">Experience & Projects</h2>
+            <!-- EDITABLE CONTENT -->
+            <div class="space-y-12">
+                <!-- Project Card 1 -->
+                <div class="card grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">High-Volume E-commerce API</h3>
+                        <p class="text-lg text-gray-300 mb-4">
+                            Architected and deployed a new generation of product APIs capable of handling 
+                            <strong>5,000+ requests per second</strong> during peak traffic. Reduced average API response time by 
+                            <strong>40%</strong> through advanced indexing and caching strategies.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-blue-300 text-xs font-medium px-3 py-1 rounded-full">Node.js</span>
+                            <span class="bg-gray-700 text-blue-300 text-xs font-medium px-3 py-1 rounded-full">Express</span>
+                            <span class="bg-gray-700 text-blue-300 text-xs font-medium px-3 py-1 rounded-full">PostgreSQL</span>
+                            <span class="bg-gray-700 text-blue-300 text-xs font-medium px-3 py-1 rounded-full">AWS RDS</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4">
+                        <img src="https://placehold.co/600x400/1f2937/3b82f6?text=Project+1" alt="Project 1" class="rounded-lg">
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="card grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-8 md:order-2">
+                        <h3 class="text-2xl font-bold text-white mb-2">Monolith to Microservice Migration</h3>
+                        <p class="text-lg text-gray-300 mb-4">
+                            Led the transition of a monolithic application to a containerized microservice architecture using 
+                            <strong>Docker</strong>. Implemented a fully automated CI/CD pipeline, reducing deployment time from hours 
+                            to minutes and significantly improving system stability.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-700 text-green-300 text-xs font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-gray-700 text-green-300 text-xs font-medium px-3 py-1 rounded-full">Django</span>
+                            <span class="bg-gray-700 text-green-300 text-xs font-medium px-3 py-1 rounded-full">Docker</span>
+                            <span class="bg-gray-700 text-green-300 text-xs font-medium px-3 py-1 rounded-full">AWS ECS</span>
+                            <span class="bg-gray-700 text-green-300 text-xs font-medium px-3 py-1 rounded-full">CI/CD</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4 md:order-1">
+                        <img src="https://placehold.co/600x400/1f2937/10b981?text=Project+2" alt="Project 2" class="rounded-lg">
+                    </div>
+                </div>
+            </div>
+            <!-- END EDITABLE CONTENT -->
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="content-overlay container mx-auto max-w-3xl text-center px-6 py-20 md:py-32">
+            <h2 class="section-header">Let's Connect</h2>
+            <!-- EDITABLE CONTENT -->
+            <p class="text-xl text-gray-300 mb-8">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. 
+                Feel free to reach out to build the next scalable architecture together.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="mailto:sunil.golani.dev@example.com" class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition-colors">
+                    Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/sunil-golani-990b2112a/" target="_blank" class="bg-gray-700 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-gray-600 transition-colors">
+                    View LinkedIn
+                </a>
+            </div>
+            <!-- END EDITABLE CONTENT -->
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="content-overlay container mx-auto max-w-6xl px-6 py-10 text-center text-gray-500">
+            <p>&copy; <span id="current-year"></span> Sunil Golani. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script typeF="module">
+        // --- LENIS SMOOTH SCROLL ---
+        const lenis = new Lenis();
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+        
+        // Handle anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                lenis.scrollTo(this.getAttribute('href'));
+            });
+        });
+
+        // --- THREE.JS 3D BACKGROUND ---
+        let scene, camera, renderer, shape;
+
+        function initThree() {
+            // Scene
+            scene = new THREE.Scene();
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            // Renderer
+            const canvas = document.getElementById('three-canvas');
+            renderer = new THREE.WebGLRenderer({ 
+                canvas: canvas,
+                alpha: true // Transparent background
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            // Shape (Icosahedron)
+            const geometry = new THREE.IcosahedronGeometry(1.5, 0); // radius, detail
+            const material = new THREE.MeshStandardMaterial({
+                color: 0x3b82f6, // Blue color
+                wireframe: true,
+            });
+            shape = new THREE.Mesh(geometry, material);
+            scene.add(shape);
+
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+            scene.add(ambientLight);
+            
+            const pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+
+            // Handle Resize
+            window.addEventListener('resize', onWindowResize, false);
+            
+            // Start Animation
+            animate();
+        }
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Rotate shape
+            if (shape) {
+                shape.rotation.x += 0.001;
+                shape.rotation.y += 0.001;
+            }
+            
+            renderer.render(scene, camera);
+        }
+
+        // Resize Handler
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // --- GENERAL INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initThree();
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
